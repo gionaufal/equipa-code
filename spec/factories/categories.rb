@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :category do
-    name "Categoria"
+    name 'furadeira'
+    price 10
+    days 1
   end
 end

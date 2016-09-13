@@ -21,4 +21,12 @@ feature 'User cadaster equipments' do
     expect(page).to have_content '10234'
     expect(page).to have_content '200'
   end
+
+  scenario 'should fill all fields' do
+    visit new_equipment_path
+    
+    click_on 'Cadastrar'
+
+    expect(page).to have_content 'Todos os campos são obrigatórios'
+  end
 end

@@ -14,8 +14,25 @@ ActiveRecord::Schema.define(version: 20160913005616) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.integer  "price"
+    t.integer  "days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.string   "customer"
+    t.string   "equipment"
+    t.string   "acquisition_price"
+    t.string   "delivery_address"
+    t.string   "responsable"
+    t.string   "cpf"
+    t.string   "rental_period"
+    t.string   "initial_date"
+    t.float    "amount"
+    t.float    "discount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "equipment", force: :cascade do |t|
