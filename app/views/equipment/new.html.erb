@@ -1,0 +1,8 @@
+<%= simple_form_for @equipment do |f| %>
+  <%= f.association :category, label: 'Categorias' %>
+  <%= f.input :model, label: 'Modelo' %>
+  <%= f.input :serial_number, label: 'Número de Série' %>
+  <%= f.input :asset_number, label: 'Número de Inventário' %>
+  <%= f.input :acquisition_price, label: 'Valor do Equipamento' %>
+  <%= f.button :submit, 'Cadastrar' %>
+<% end %>
