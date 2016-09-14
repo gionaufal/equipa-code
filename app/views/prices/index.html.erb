@@ -9,11 +9,13 @@
   </thead>
   <tbody>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.days %></td>
-        <td><%= category.name %></td>
-        <td><%= category.price%></td>
-      </tr>
+      <% category.prices.each do |price| %>
+        <tr>
+          <td><%= price.days %></td>
+          <td><%= category.name %></td>
+          <td><%= price.price %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
