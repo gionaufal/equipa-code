@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :equipment do
-    model "MyString"
+    model "Furadeira"
     serial_number 1
     asset_number 1
     acquisition_price 1.5
-    category nil
+    category
   end
 end
