@@ -1,0 +1,14 @@
+<%= simple_form_for @contract do |f| %>
+  <%= f.input :customer, label: 'Cliente' %>
+  <%= f.input :equipment, label: 'Equipamentos' %>
+  <%= f.input :acquisition_price, label: 'Valor dos Equipamentos' %>
+  <%= f.input :delivery_address, label: 'Endereço de Entrega' %>
+  <%= f.input :responsable, label: 'Responsável na obra' %>
+  <%= f.input :cpf, label: 'CPF do responsável' %>
+  <%= f.input :rental_period, label: 'Prazo de locação' %>
+  <%= f.input :initial_date, label: 'Data de início' %>
+  <%= f.input :amount, label: 'Valor' %>
+  <%= f.input :discount, label: 'Desconto' %>
+
+  <%= f.button :submit, 'Criar contrato' %>
+<% end %>

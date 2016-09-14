@@ -1,0 +1,21 @@
+<h1>Tabela de Preços</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Quantidade de Dias</th>
+      <th>Categoria</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <% category.prices.each do |price| %>
+        <tr>
+          <td><%= price.days %></td>
+          <td><%= category.name %></td>
+          <td><%= price.price %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
