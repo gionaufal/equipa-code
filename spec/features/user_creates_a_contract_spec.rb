@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'User creates a contract' do
   scenario 'successfully' do
+
+    
     visit new_contract_path
 
     fill_in 'Cliente', with: 'Campus Code'
