@@ -68,26 +68,4 @@ feature 'User creates a contract' do
 
   end
 
-  scenario 'should check at least one equipment' do
-
-    create :equipment, model:'Furadeira'
-    create :equipment, model:'Britadeira'
-
-    visit new_contract_path
-
-    fill_in 'Cliente', with: 'Campus Code'
-    fill_in 'Valor dos Equipamentos', with: '1000'
-    fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
-    fill_in 'Responsável na obra', with: 'João da Silva'
-    fill_in 'CPF do responsável', with: '4987984984685'
-    fill_in 'Prazo de locação', with: '15'
-    fill_in 'Data de início', with: '12/09/2016'
-    fill_in 'Valor', with: '500'
-    fill_in 'Desconto', with: '10'
-    click_on 'Criar contrato'
-
-    expect(page).to have_content 'É obrigatório escolher um equipamento'
-
-  end
-
 end
