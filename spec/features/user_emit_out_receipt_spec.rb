@@ -2,16 +2,11 @@ require 'rails_helper'
 
 feature 'User emit receipt out' do
   scenario 'successfully out' do
-    visit new_receipt_path
+    @contract = Contract.create('vagas', 'furadeira', '230', 'R. teste', 'Joao'
+                                '36576809385', '3', '21/10/2016','350,00', '10')
+    visit contract_path @contract
 
-    fill_in 'Tipo', with: 'Saida'
-    fill_in 'Contrato', with: '123456789'
-    fill_in 'Equipamentos', with: 'Furadeira'
-    fill_in 'Endereço', with: 'Rua teste'
-    fill_in 'Data de entrega', with: '09/12/2016'
-    fill_in 'Assinatura', with: ''
-
-    click_on 'Criar orçamento'
+    click_on 'Recibo'
 
     expect(page).to have_content '123456789'
     expect(page).to have_content 'Furadeira'
