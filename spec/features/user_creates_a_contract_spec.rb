@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'User creates a contract' do
   scenario 'successfully' do
+    customer = create(:customer)
+
     visit new_contract_path
 
-    fill_in 'Cliente', with: 'Campus Code'
+    select customer.name, from: 'Cliente'
     fill_in 'Equipamentos', with: 'Furadeira'
     fill_in 'Valor dos Equipamentos', with: '1000'
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
@@ -17,7 +19,7 @@ feature 'User creates a contract' do
 
     click_on 'Criar contrato'
 
-    expect(page).to have_content 'Campus Code'
+    expect(page).to have_content customer.name
     expect(page).to have_content 'Furadeira'
     expect(page).to have_content '1000'
     expect(page).to have_content 'Rua Vergueiro'
