@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :contract do
-    customer 'MyString'
-    equipment 'MyString'
+    customer 
     acquisition_price 'MyString'
     delivery_address 'MyString'
     responsable 'MyString'
