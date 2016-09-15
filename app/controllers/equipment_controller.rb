@@ -5,8 +5,13 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    @equipment = Equipment.create(equipment_params)
-    redirect_to @equipment
+    @equipment = Equipment.new(equipment_params)
+    if @equipment.save
+      redirect_to @equipment
+    else
+      flash[:error] = 'Todos os campos são obrigatórios'
+      render :new
+    end
   end
 
   def show

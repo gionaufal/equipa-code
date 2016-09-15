@@ -1,7 +1,9 @@
 <section class='contract'>
   <ul>
-    <li><%= @contract.customer %></li>
-    <li><%= @contract.equipment %></li>
+    <li><%= @contract.customer.name %></li>
+    <% @contract.equipment.each do |equipment|%>
+    <li><%= equipment.model %></li>
+    <% end %>
     <li><%= @contract.acquisition_price %></li>
     <li><%= @contract.delivery_address %></li>
     <li><%= @contract.responsable %></li>

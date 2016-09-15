@@ -1,0 +1,8 @@
+<%= simple_form_for @customer do |f| %>
+  <%= f.input :name, label: 'Nome' %>
+  <%= f.input :billing_address, label: 'Endereço de faturamento' %>
+  <%= f.input :mail, label: 'E-Mail' %>
+  <%= f.input :phone, label: 'Telefone' %>
+  <%= f.input :cnpj, label: 'CNPJ' %>
+  <%= f.button :submit, 'Cadastrar Cliente' %>
+<% end %>
