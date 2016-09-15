@@ -1,6 +1,6 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer, label: 'Cliente' %>
-  <%= f.input :equipment, label: 'Equipamentos' %>
+  <%= f.association :equipment, label_method: :model, as: :check_boxes  %>
   <%= f.input :delivery_address, label: 'Endereço de Entrega' %>
   <%= f.input :responsable, label: 'Responsável na obra' %>
   <%= f.input :cpf, label: 'CPF do responsável' %>
