@@ -12,6 +12,9 @@
     <li><%= @contract.discount %></li>
     <li><%= @contract.created_at %></li>
   </ul>
-  link_to(@current_user.login, { controller: "accounts", action: "show", id: @current_user })
-  <input type="submit" value="Recibo">
+  <% if @contract.receipt %>
+    <%= link_to "Visualizar recibo", receipt_contract_path(@contract) %>
+  <% else %>
+    <%= link_to "Emitir recibo", receipt_contract_path(@contract) %>
+  <% end %>
 </section>

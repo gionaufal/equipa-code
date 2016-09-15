@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :equipment, only: [:new, :index, :create, :show]
 
   resources :prices, only: [:index]
-  resources :contracts, only:[:new, :create, :show]
-  resources :receipts, only:[:new]
+  resources :contracts, only:[:new, :create, :show] do
+    member do
+      post 'receipt', to: 'receipts#create'
+      get 'receipt', to: 'receipts#show'
+    end
+  end
+  resources :receipts, only:[:show, :create]
 end

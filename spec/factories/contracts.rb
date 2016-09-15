@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :contract do
-    customer "MyString"
-    equipment "MyString"
-    acquisition_price "MyString"
-    delivery_address "MyString"
-    responsable "MyString"
-    cpf "MyString"
-    rental_period "MyString"
-    initial_date "MyString"
+    customer "Vagas"
+    equipment "Furadeira"
+    acquisition_price "350,00"
+    delivery_address "R. teste"
+    responsable "Joao"
+    cpf "36576809385"
+    rental_period "3"
+    initial_date "09/12/2016"
     amount 1.5
     discount 1.5
   end
