@@ -9,5 +9,4 @@ Rails.application.routes.draw do
       get 'receipt', to: 'receipts#show'
     end
   end
-  resources :receipts, only:[:show, :create]
 end
