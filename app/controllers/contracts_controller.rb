@@ -5,9 +5,12 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.save
-
-    redirect_to @contract
+    if @contract.save
+      redirect_to @contract
+    else
+      flash[:error] = 'Você não preencheu alguns campos necessários.'
+      render :new
+    end
   end
 
   def show

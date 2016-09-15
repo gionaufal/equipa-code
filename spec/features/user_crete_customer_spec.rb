@@ -2,11 +2,7 @@ require 'rails_helper'
 
 feature 'user creates customer' do
   scenario 'successfully' do
-    customer = Customer.new(name: 'Empresa',
-                            billing_address: 'rua dos bobos numero zero',
-                            mail: 'empresa@bobos.com',
-                            phone: '96432547',
-                            cnpj: '12.678.456/0001-46')
+    customer = create(:customer)
 
     visit new_customer_path
 
@@ -23,7 +19,19 @@ feature 'user creates customer' do
     expect(page).to have_content(customer.mail)
     expect(page).to have_content(customer.phone)
     expect(page).to have_content(customer.cnpj)
+  end
 
+  scenario 'should fail if has missing fields' do
 
+    customer = build(:customer)
+
+    visit new_customer_path
+
+    fill_in 'Nome', with: customer.name
+    fill_in 'CNPJ', with: customer.cnpj
+
+    click_on 'Cadastrar Cliente'
+
+    expect(page).to have_content('Você precisa preencher todos os campos!')
   end
 end

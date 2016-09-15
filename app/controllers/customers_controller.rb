@@ -9,7 +9,12 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.create(params.require(:customer).permit(:name, :billing_address, :mail, :phone, :cnpj))
-    redirect_to customer
+    @customer = Customer.new(params.require(:customer).permit(:name, :billing_address, :mail, :phone, :cnpj))
+    if @customer.save
+      redirect_to @customer
+    else
+      flash[:error] = 'Você precisa preencher todos os campos!'
+      render :new
+    end
   end
 end
