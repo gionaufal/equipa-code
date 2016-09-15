@@ -7,7 +7,11 @@ feature 'User creates a contract' do
 
     visit new_contract_path
 
-    fill_in 'Cliente', with: 'Campus Code'
+    customer = create(:customer)
+
+    visit new_contract_path
+
+    select customer.name, from: 'Cliente'
     check 'Furadeira'
     fill_in 'Valor dos Equipamentos', with: '1000'
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
@@ -53,7 +57,7 @@ feature 'User creates a contract' do
     fill_in 'Desconto', with: '10'
     click_on 'Criar contrato'
 
-    expect(page).to have_content 'Campus Code'
+    expect(page).to have_content customer.name
     expect(page).to have_content 'Furadeira'
     expect(page).to have_content 'Britadeira'
     expect(page).to have_content '1000'

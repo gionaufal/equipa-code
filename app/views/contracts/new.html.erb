@@ -1,5 +1,5 @@
 <%= simple_form_for @contract do |f| %>
-  <%= f.input :customer, label: 'Cliente' %>
+  <%= f.association :customer, label: 'Cliente' %>
   <%= f.association :equipment, label_method: :model, as: :check_boxes  %>
   <%= f.input :acquisition_price, label: 'Valor dos Equipamentos' %>
   <%= f.input :delivery_address, label: 'Endereço de Entrega' %>

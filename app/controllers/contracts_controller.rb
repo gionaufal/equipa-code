@@ -17,7 +17,8 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:customer, :acquisition_price,
+
+    params.require(:contract).permit(:customer_id, :equipment, :acquisition_price,
                                      :delivery_address, :responsable, :cpf,
                                      :rental_period, :initial_date, :amount,
                                      :discount, equipment_ids: [])

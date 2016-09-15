@@ -1,6 +1,6 @@
 <section class='contract'>
   <ul>
-    <li><%= @contract.customer %></li>
+    <li><%= @contract.customer.name %></li>
     <% @contract.equipment.each do |equipment|%>
     <li><%= equipment.model %></li>
     <% end %>
