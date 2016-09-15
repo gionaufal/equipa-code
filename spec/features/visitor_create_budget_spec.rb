@@ -17,4 +17,14 @@ feature 'visitor create budget' do
 
     expect(page).to have_content('Sua mensagem foi enviada com sucesso. Aguarde nosso contato.')
   end
+
+  scenario 'fail to send budget' do
+
+    visit new_budget_path
+
+    click_on 'Enviar'
+
+    expect(page).to have_content('Não foi possível enviar o orçamento')
+
+  end
 end

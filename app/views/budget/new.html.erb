@@ -1,0 +1,7 @@
+<%= simple_form_for @budget do |f| %>
+  <%= f.input :name, label: 'Nome' %>
+  <%= f.input :phone, label: 'Telefone' %>
+  <%= f.input :mail, label: 'E-Mail' %>
+  <%= f.input :body, label: 'Mensagem' %>
+  <%= f.button :submit, 'Enviar' %>
+<% end %>
