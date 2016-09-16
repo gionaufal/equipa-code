@@ -1,11 +1,12 @@
 <h1>Recibo de Entrega</h1>
 
-<%= "São Paulo, 13 de Janeiro de 2016" %>
+<%= "São Paulo, #{friendly_date(@receipt.created_at)}" %>
 
-<p>Eu, <%= @receipt.contract.responsable %>, em nome da empresa <%= @receipt.contract.customer %>,
-  inscrita no CNPJ<hr> declaro ter recebido os
-  equipamentos <hr> pelo período de de <hr> em perfeitas condições de uso no
-  endereço <hr> no dia <hr> de acordo com o contrato <hr>
+<p>Eu, <%= @receipt.contract.responsable %>, em nome da empresa <%= @receipt.contract.customer.name %>,
+  inscrita no CNPJ <%= @receipt.contract.customer.cnpj %> declaro ter recebido os
+  equipamentos <%= @receipt.contract.equipment.first.model %> pelo período de de <%= @receipt.contract.rental_period %> em perfeitas condições de uso no
+  endereço <%= @receipt.contract.delivery_address %> no dia
+  <%= @receipt.contract.initial_date %> de acordo com o contrato <%= @receipt.contract.id %>
 </p>
 </br>
 </br>

@@ -9,9 +9,9 @@ class ReceiptsController <ApplicationController
 
   def create
     contract = Contract.find(params[:id])
-    contract.receipt.create(address: contract.delivery_address,
+    contract.receipt = Receipt.create(address: contract.delivery_address,
                                       delivery_date: contract.initial_date)
-    redirect_to contract.receipt
+    redirect_to receipt_contract_path(contract)
   end
 
 end
