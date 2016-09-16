@@ -14,5 +14,5 @@
     <li><%= @contract.discount %></li>
     <li><%= @contract.created_at %></li>
   </ul>
-  <%= link_to 'Emitir recibo de devolução', new_return_receipt_path %>
+  <%= link_to 'Emitir recibo de devolução', new_contract_return_receipt_path(@contract) %>
 </section>
