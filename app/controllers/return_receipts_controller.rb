@@ -5,13 +5,12 @@ class ReturnReceiptsController < ApplicationController
   end
 
   def create
-    @contract.return_receipt = ReturnReceipt.new(params.require(:return_receipt)
-                      .permit(:employee_name, :cpf))
-    if @contract.return_receipt.save
+    @return_receipt = @contract.build_return_receipt(params.require(:return_receipt).permit(:employee_name, :cpf))
+    if @return_receipt.save
       redirect_to [@contract, @contract.return_receipt]
     else
       flash[:error] = 'Preencha os dados do funcionário'
-      @contract.return_receipt = ReturnReceipt.new
+      @return_receipt = @contract.build_return_receipt
       render :new
     end
   end
