@@ -24,7 +24,7 @@ feature 'User cadaster equipments' do
 
   scenario 'should fill all fields' do
     visit new_equipment_path
-    
+
     click_on 'Cadastrar'
 
     expect(page).to have_content 'Todos os campos são obrigatórios'

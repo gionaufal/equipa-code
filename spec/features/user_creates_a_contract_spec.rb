@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'User creates a contract' do
   scenario 'successfully' do
-
-    create :equipment, model:'Furadeira'
+    create :equipment, model: 'Furadeira'
 
     visit new_contract_path
 
@@ -36,9 +35,8 @@ feature 'User creates a contract' do
   end
 
   scenario 'User choses 2 equipment' do
-
-    create :equipment, model:'Furadeira'
-    create :equipment, model:'Britadeira'
+    create :equipment, model: 'Furadeira'
+    create :equipment, model: 'Britadeira'
     customer = create(:customer)
 
     visit new_contract_path
@@ -68,9 +66,6 @@ feature 'User creates a contract' do
     expect(page).to have_content Time.zone.today
   end
   scenario 'should fail if has missing necessary fields' do
-
-    customer = build(:customer)
-
     visit new_contract_path
 
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
@@ -83,8 +78,7 @@ feature 'User creates a contract' do
 
     click_on 'Criar contrato'
 
-    expect(page).to have_content('Você não preencheu alguns campos necessários.')
-
+    expect(page).to have_content("Você não preencheu alguns campos \
+                                  necessários.")
   end
-
 end

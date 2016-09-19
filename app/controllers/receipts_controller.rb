@@ -1,4 +1,4 @@
-class ReceiptsController <ApplicationController
+class ReceiptsController < ApplicationController
   def new
     @receipt = Receipt.new
   end
@@ -13,5 +13,4 @@ class ReceiptsController <ApplicationController
                                       delivery_date: contract.initial_date)
     redirect_to receipt_contract_path(contract)
   end
-
 end

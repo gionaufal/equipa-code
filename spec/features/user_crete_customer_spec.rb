@@ -22,7 +22,6 @@ feature 'user creates customer' do
   end
 
   scenario 'should fail if has missing fields' do
-
     customer = build(:customer)
 
     visit new_customer_path
