@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :customers, only: [:new, :create, :show]
-
+  resources :budgets, only: [:new, :create]
 end
