@@ -32,7 +32,7 @@ feature 'User creates a contract' do
     expect(page).to have_content '500'
     expect(page).to have_content '10'
     expect(page).to have_content Time.zone.today
-
+    expect(page).to have_link('Emitir recibo')
   end
 
   scenario 'User choses 2 equipment' do
