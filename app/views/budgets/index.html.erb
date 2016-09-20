@@ -1,0 +1,24 @@
+<% if @budgets.size > 0 %>
+  <table class="table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>E-Mail</th>
+        <th>Resumo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @budgets.each do |budget| %>
+        <tr>
+          <td><%= link_to budget.name, budget %></td>
+          <td><%= budget.phone %></td>
+          <td><%= budget.mail %></td>
+          <td><%= budget.excerpt %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="bg-warning">No momento ainda não existem orçamentos</p>
+<% end %>
