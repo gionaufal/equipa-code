@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     end
   end
   resources :customers, only: [:new, :create, :show]
-  resources :budgets, only: [:new, :create]
+  resources :budgets, only: [:new, :create, :index, :show]
   root to: "home#index"
 end
