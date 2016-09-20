@@ -10,15 +10,15 @@ feature 'User cadaster equipments' do
 
     select 'Britadeiras', from: 'Categorias'
     fill_in 'Modelo', with: 'X870'
-    fill_in 'Número de Série', with: '2234'
-    fill_in 'Número de Inventário', with: '10234'
+    fill_in 'Número de Série', with: 'lx2234'
+    fill_in 'Número de Inventário', with: 'A10234'
     fill_in 'Valor do Equipamento', with: '200'
     click_on 'Cadastrar'
 
     expect(page).to have_content 'Britadeiras'
     expect(page).to have_content 'X870'
-    expect(page).to have_content '2234'
-    expect(page).to have_content '10234'
+    expect(page).to have_content 'lx2234'
+    expect(page).to have_content 'A10234'
     expect(page).to have_content '200'
   end
 
