@@ -27,17 +27,17 @@ feature 'visitor visits root page' do
   end
 
   scenario 'views contracts' do
+    equipment = create(:equipment)
 
-    create(:contract)
-    create(:contract)
-    create(:contract)
-    create(:contract)
-    create(:contract)
-    create(:contract)
-
+    conctract1 = create(:contract, equipment: [equipment])
+    conctract2 = create(:contract, equipment: [equipment])
+    conctract3 = create(:contract, equipment: [equipment])
+    conctract4 = create(:contract, equipment: [equipment])
 
     visit root_path
 
     expect(page).to have_content 'Campus Code'
+    expect(page).to have_content equipment.model
+    expect(page).to have_content contract.customer.name
   end
 end

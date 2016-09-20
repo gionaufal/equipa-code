@@ -1,1 +1,14 @@
 <%= image_tag 'rafael.jpg', alt:'Rafael'%>
+<section class='contracts'>
+  <div class="row">
+    <%= @contracts.each do |contract| %>
+      <div class="contract col-md-6">
+        <p>Cliente: <%= contract.customer.name %></p>
+        <% contract.equipment.each do |equipment|%>
+          <li><%= equipment.model %></li>
+        <% end %>
+        <p>Data de término: <%= contract.initial_date.to_date + contract.rental_period.to_date %></p>
+      </div>
+    <% end %>
+  </div>
+</section>
