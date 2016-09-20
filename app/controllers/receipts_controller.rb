@@ -1,8 +1,4 @@
 class ReceiptsController < ApplicationController
-  def new
-    @receipt = Receipt.new
-  end
-
   def show
     @receipt = Contract.find(params[:id]).receipt
   end

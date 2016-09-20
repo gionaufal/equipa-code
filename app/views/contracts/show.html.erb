@@ -19,4 +19,5 @@
   <% else %>
     <%= link_to "Visualizar recibo", receipt_contract_path(@contract) %>
   <% end %>
+  <%= link_to 'Emitir recibo de devolução', new_contract_return_receipt_path(@contract) %>
 </section>
