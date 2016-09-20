@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916000505) do
+ActiveRecord::Schema.define(version: 20160920005357) do
 
   create_table "budgets", force: :cascade do |t|
     t.string   "name"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20160916000505) do
 
   create_table "equipment", force: :cascade do |t|
     t.string   "model"
-    t.integer  "serial_number"
-    t.integer  "asset_number"
+    t.string   "serial_number"
+    t.string   "asset_number"
     t.float    "acquisition_price"
     t.integer  "category_id"
     t.datetime "created_at",        null: false
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 20160916000505) do
     t.datetime "updated_at",  null: false
     t.float    "price"
     t.index ["category_id"], name: "index_prices_on_category_id"
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.string   "address"
+    t.date     "delivery_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["contract_id"], name: "index_receipts_on_contract_id"
   end
 
   create_table "rented_equipments", force: :cascade do |t|

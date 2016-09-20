@@ -2,9 +2,8 @@
   <ul>
     <li><%= @contract.customer.name %></li>
     <% @contract.equipment.each do |equipment|%>
-    <li><%= equipment.model %></li>
+    <li><%= equipment.model %> - Preço: R$ <%= equipment.acquisition_price %></li>
     <% end %>
-    <li><%= @contract.acquisition_price %></li>
     <li><%= @contract.delivery_address %></li>
     <li><%= @contract.responsable %></li>
     <li><%= @contract.cpf %></li>
@@ -14,5 +13,10 @@
     <li><%= @contract.discount %></li>
     <li><%= @contract.created_at %></li>
   </ul>
+  <% if @contract.receipt.nil? %>
+    <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>
+  <% else %>
+    <%= link_to "Visualizar recibo", receipt_contract_path(@contract) %>
+  <% end %>
   <%= link_to 'Emitir recibo de devolução', new_contract_return_receipt_path(@contract) %>
 </section>

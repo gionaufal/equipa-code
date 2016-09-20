@@ -5,7 +5,9 @@ class ReturnReceiptsController < ApplicationController
   end
 
   def create
-    @return_receipt = @contract.build_return_receipt(params.require(:return_receipt).permit(:employee_name, :cpf))
+    @return_receipt = @contract.build_return_receipt(params
+        .require(:return_receipt)
+        .permit(:employee_name, :cpf))
     if @return_receipt.save
       redirect_to [@contract, @contract.return_receipt]
     else
@@ -16,7 +18,6 @@ class ReturnReceiptsController < ApplicationController
   end
 
   def show
-
   end
 
   private

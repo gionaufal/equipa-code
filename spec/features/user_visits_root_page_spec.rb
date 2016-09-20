@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'visitor visits root page' do
   scenario 'visits navbar links' do
-
     visit root_path
 
     expect(page).to have_content('Equipa')

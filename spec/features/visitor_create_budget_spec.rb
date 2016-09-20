@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'visitor create budget' do
   scenario 'successfully' do
-
-    budget = Budget.new(name: 'Manuel', phone: '678467479', mail:'eu@mail.com',
-                        body:'Quero alugar uma frigideira que caiba a minha sogra. Por 5 dias. Obrigado.')
+    budget = Budget.new(name: 'Manuel', phone: '678467479', mail: 'eu@mail.com',
+                        body: 'Quero alugar uma frigideira que caiba a minha \
+                              sogra. Por 5 dias. Obrigado.')
 
     visit new_budget_path
 
@@ -15,16 +15,15 @@ feature 'visitor create budget' do
 
     click_on 'Enviar'
 
-    expect(page).to have_content('Sua mensagem foi enviada com sucesso. Aguarde nosso contato.')
+    expect(page).to have_content("Sua mensagem foi enviada com sucesso. \
+                                  Aguarde nosso contato.")
   end
 
   scenario 'fail to send budget' do
-
     visit new_budget_path
 
     click_on 'Enviar'
 
     expect(page).to have_content('Não foi possível enviar o orçamento')
-
   end
 end

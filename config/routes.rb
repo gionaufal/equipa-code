@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :prices, only: [:index]
   resources :contracts, only:[:new, :create, :show] do
     resources :return_receipts, only: [:new, :create, :show]
+    member do
+      post 'receipt', to: 'receipts#create'
+      get 'receipt', to: 'receipts#show'
+    end
   end
-
   resources :customers, only: [:new, :create, :show]
-  resources :budgets, only: [:new, :create]
+  resources :budgets, only: [:new, :create, :index, :show]
   root to: "home#index"
 end
