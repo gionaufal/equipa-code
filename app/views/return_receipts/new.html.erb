@@ -1,0 +1,15 @@
+<section class='return_receipt'>
+  <h1>Recibo de retirada</h1>
+  <p><%= @contract.customer.name%></p>
+  <p><%= @contract.delivery_address%></p>
+  <% @contract.equipment.each do |equipment| %>
+    <p><%= equipment.model %></p>
+  <% end %>
+
+
+  <%= simple_form_for [@contract, @return_receipt] do |f| %>
+    <%= f.input :cpf, label: 'CPF'%>
+    <%= f.input :employee_name, label: 'Nome do funcionário'%>
+    <%= f.button :submit, 'Emitir recibo'%>
+  <% end %>
+</section>

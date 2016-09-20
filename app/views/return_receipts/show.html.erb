@@ -1,0 +1,13 @@
+<section class="return_receipt">
+    <h1>Recibo de retirada</h1>
+    <p>Empresa: <%= @contract.customer.name%></p>
+    <p>Endereço: <%= @contract.delivery_address%></p>
+    <p>Equipamentos:</p>
+    <% @contract.equipment.each do |equipment| %>
+      <p><%= equipment.model %></p>
+    <% end %>
+    <p>Nome do funcionário: <%= @contract.return_receipt.employee_name%></p>
+    <p>CPF do funcionário: <%= @contract.return_receipt.cpf%></p>
+    <p>___________________</p>
+    <p>___________________</p>
+</section>

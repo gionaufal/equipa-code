@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Equipa</title>
     <%= csrf_meta_tags %>
 
@@ -9,7 +11,23 @@
   </head>
 
   <body>
-    <p><%= flash[:error] %></p>
-    <%= yield %>
+    <div class="container-fluid">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Equipa!</a>
+      
+    </div>
+      </nav>
+    </div>
+    <div class="container">
+      <p><%= flash[:error] %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
