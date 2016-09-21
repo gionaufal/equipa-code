@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @contracts = Contract.all
+    @contracts = Contract.order(return_date: :asc)
   end
 end

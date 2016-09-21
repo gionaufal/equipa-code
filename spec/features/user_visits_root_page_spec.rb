@@ -22,16 +22,15 @@ feature 'visitor visits root page' do
     click_on 'Enviar Orçamento'
 
     expect(page).to have_content 'Mensagem'
-
   end
 
   scenario 'views contracts' do
     equipment = create(:equipment)
 
-    conctract1 = create(:contract, equipment: [equipment])
-    conctract2 = create(:contract, equipment: [equipment])
-    conctract3 = create(:contract, equipment: [equipment])
-    conctract4 = create(:contract, equipment: [equipment])
+    create(:contract, equipment: [equipment])
+    create(:contract, equipment: [equipment])
+    create(:contract, equipment: [equipment])
+    create(:contract, equipment: [equipment])
 
     visit root_path
 

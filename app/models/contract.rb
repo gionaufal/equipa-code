@@ -7,8 +7,10 @@ class Contract < ApplicationRecord
   validates :equipment, :delivery_address, :responsable, :rental_period,
             :initial_date, :amount, presence: true
 
+  before_save :calculate_return_date
+
   def calculate_return_date
-    self.initial_date.to_date + self.rental_period.to_i
+    self.return_date = initial_date.to_date + rental_period.to_i
   end
 
   def rental_period_days

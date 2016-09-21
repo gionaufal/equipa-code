@@ -6,7 +6,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @contract.return_date = @contract.calculate_return_date
     if @contract.save
       redirect_to @contract
     else
@@ -17,7 +16,6 @@ class ContractsController < ApplicationController
 
   def show
     @contract = Contract.find(params[:id])
-    @contract.return_date = @contract.calculate_return_date
   end
 
   private

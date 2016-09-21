@@ -27,7 +27,7 @@ feature 'User creates a contract' do
     expect(page).to have_content '12 de Setembro de 2016'
     expect(page).to have_content '500'
     expect(page).to have_content '10'
-    #expect(page).to have_content(friendly_date Time.zone.today)
+    # expect(page).to have_content(friendly_date Time.zone.today)
     expect(page).to have_link('Emitir recibo')
   end
 
@@ -60,7 +60,7 @@ feature 'User creates a contract' do
     expect(page).to have_content '12 de Setembro de 2016'
     expect(page).to have_content '500'
     expect(page).to have_content '10'
-    #expect(page).to have_content(friendly_date Time.zone.today)
+    # expect(page).to have_content(friendly_date Time.zone.today)
   end
   scenario 'should fail if has missing necessary fields' do
     visit new_contract_path
