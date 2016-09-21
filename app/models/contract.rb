@@ -6,4 +6,8 @@ class Contract < ApplicationRecord
   belongs_to :customer
   validates :equipment, :delivery_address, :responsable, :rental_period,
             :initial_date, :amount, presence: true
+
+  def calculate_return_date
+    self.initial_date.to_date + self.rental_period.to_i
+  end
 end

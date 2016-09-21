@@ -8,10 +8,11 @@
     <li><%= @contract.responsable %></li>
     <li><%= @contract.cpf %></li>
     <li><%= @contract.rental_period %></li>
-    <li><%= @contract.initial_date %></li>
+    <li><%= friendly_date @contract.initial_date.to_date %></li>
     <li><%= @contract.amount %></li>
     <li><%= @contract.discount %></li>
-    <li><%= @contract.created_at %></li>
+    <li><%= friendly_date @contract.created_at %></li>
+    <li><%= friendly_date @contract.return_date %></li>
   </ul>
   <% if @contract.receipt.nil? %>
     <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>

@@ -37,6 +37,5 @@ feature 'visitor visits root page' do
 
     expect(page).to have_content 'Campus Code'
     expect(page).to have_content equipment.model
-    expect(page).to have_content contract.customer.name
   end
 end
