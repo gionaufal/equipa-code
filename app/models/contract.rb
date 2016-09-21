@@ -6,4 +6,8 @@ class Contract < ApplicationRecord
   belongs_to :customer
   validates :equipment, :delivery_address, :responsable, :rental_period,
             :initial_date, :amount, presence: true
+
+  def rental_period_days
+    rental_period == 1 ? "#{rental_period} dia" : "#{rental_period} dias"
+  end
 end
