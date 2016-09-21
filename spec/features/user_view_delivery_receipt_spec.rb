@@ -3,8 +3,12 @@ require 'rails_helper'
 feature 'User view delivery receipt' do
   scenario 'receipt already issued' do
     date = DateTime.new(2016, 1, 13).in_time_zone('Brasilia')
-    equipment = create(:equipment)
-    contract = create(:contract, equipment: [equipment])
+    category = create(:category, name: 'Furadeira')
+    create :price, days: 1, price: 10, category: category
+    equipment = create :equipment, model: 'Makita', category: category
+    equipment2 = create :equipment, model: 'Makita2', category: category
+    contract = create :contract, equipment: [equipment, equipment2],
+                                 rental_period: 1, created_at: date
     create(:receipt, contract: contract, created_at: date)
     visit contract_path contract
 
@@ -19,8 +23,12 @@ feature 'User view delivery receipt' do
   end
 
   scenario 'contract without receipt' do
-    equipment = create(:equipment)
-    contract = create(:contract, equipment: [equipment])
+    category = create(:category, name: 'Furadeira')
+    create :price, days: 1, price: 10, category: category
+    equipment = create :equipment, model: 'Makita', category: category
+    equipment2 = create :equipment, model: 'Makita2', category: category
+    contract = create :contract, equipment: [equipment, equipment2],
+                                 rental_period: 1
     visit contract_path contract
 
     click_link 'Emitir recibo'

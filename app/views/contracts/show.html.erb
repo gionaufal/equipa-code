@@ -1,19 +1,37 @@
 <section class='contract'>
-  <ul>
-    <li><%= @contract.customer.name %></li>
-    <% @contract.equipment.each do |equipment|%>
-    <li><%= equipment.model %></li>
-    <% end %>
-    <li><%= @contract.acquisition_price %></li>
-    <li><%= @contract.delivery_address %></li>
-    <li><%= @contract.responsable %></li>
-    <li><%= @contract.cpf %></li>
-    <li><%= @contract.rental_period %></li>
-    <li><%= @contract.initial_date %></li>
-    <li><%= @contract.amount %></li>
-    <li><%= @contract.discount %></li>
-    <li><%= @contract.created_at %></li>
-  </ul>
+
+  <dl>
+    <dt>Cliente</dt>
+    <dd><%= @contract.customer.name %></dd>
+
+    <dt>Equipamentos</dt>
+    <dd>
+      <ul>
+        <% @contract.equipment.each do |equipment|%>
+          <li><%= equipment.model %> (<%= equipment.category.name %>) </li>
+        <% end %>
+      </ul>
+    </dd>
+    <dt>Valor do Equipamento</dt>
+    <dd><%= @contract.acquisition_price %></dd>
+    <dt>Endereço de Entrega</dt>
+    <dd><%= @contract.delivery_address %></dd>
+    <dt>Responsável</dt>
+    <dd><%= @contract.responsable %></dd>
+    <dt>CPF</dt>
+    <dd><%= @contract.cpf %></dd>
+    <dt>Prazo</dt>
+    <dd><%= @contract.rental_period %></dd>
+    <dt>Data Inicial</dt>
+    <dd><%= @contract.initial_date%></dd>
+    <dt>Valor do Desconto</dt>
+    <dd>R$ <%= @contract.discount %></dd>
+    <dt>Valor do Contrato</dt>
+    <dd>R$ <%= @contract.amount %></dd>
+    <dt>Data de Emissão</dt>
+    <dd><%= @contract.created_at%></dd>
+  </dl>
+
   <% if @contract.receipt.nil? %>
     <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>
   <% else %>
