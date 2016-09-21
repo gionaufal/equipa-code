@@ -7,6 +7,6 @@ FactoryGirl.define do
     cpf '36576809385'
     rental_period '3'
     initial_date '09/12/2016'
-    discount 1.5
+    discount 0
   end
 end
