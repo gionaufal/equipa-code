@@ -10,4 +10,8 @@ class Contract < ApplicationRecord
   def calculate_return_date
     self.initial_date.to_date + self.rental_period.to_i
   end
+
+  def rental_period_days
+    rental_period == 1 ? "#{rental_period} dia" : "#{rental_period} dias"
+  end
 end

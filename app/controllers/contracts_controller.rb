@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
   def new
     @contract = Contract.new
+    @days = RentalPeriod::DAYS
   end
 
   def create
