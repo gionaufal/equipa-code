@@ -10,11 +10,12 @@ feature 'User creates a contract' do
     visit new_contract_path
 
     select customer.name, from: 'Cliente'
+    select '1', from: 'Prazo de locação'
+
     check 'Makita'
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
     fill_in 'Responsável na obra', with: 'João da Silva'
     fill_in 'CPF do responsável', with: '4987984984685'
-    fill_in 'Prazo de locação', with: '1'
     fill_in 'Data de início', with: '12/09/2016'
     click_on 'Criar contrato'
 
@@ -46,7 +47,7 @@ feature 'User creates a contract' do
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
     fill_in 'Responsável na obra', with: 'João da Silva'
     fill_in 'CPF do responsável', with: '4987984984685'
-    fill_in 'Prazo de locação', with: '3'
+    select '3', from: 'Prazo de locação'
     fill_in 'Data de início', with: '12/09/2016'
     click_on 'Criar contrato'
 
@@ -77,7 +78,7 @@ feature 'User creates a contract' do
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
     fill_in 'Responsável na obra', with: 'João da Silva'
     fill_in 'CPF do responsável', with: '4987984984685'
-    fill_in 'Prazo de locação', with: '3'
+    select '3', from: 'Prazo de locação'
     fill_in 'Desconto', with: 10
     fill_in 'Data de início', with: '12/09/2016'
     click_on 'Criar contrato'
@@ -95,18 +96,16 @@ feature 'User creates a contract' do
   end
 
   scenario 'should fail if has missing necessary fields' do
-
     category = create(:category, name: 'Furadeira')
     create :price, days: 1, price: 10, category: category
     create :equipment, model: 'Makita', category: category
-    customer = create(:customer)
+    create(:customer)
 
     visit new_contract_path
 
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
     fill_in 'Responsável na obra', with: 'João da Silva'
     fill_in 'CPF do responsável', with: '4987984984685'
-    fill_in 'Prazo de locação', with: '15'
     fill_in 'Data de início', with: '12/09/2016'
     fill_in 'Desconto', with: '10'
 

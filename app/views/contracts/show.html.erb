@@ -1,5 +1,4 @@
 <section class='contract'>
-
   <dl>
     <dt>Cliente</dt>
     <dd><%= @contract.customer.name %></dd>
@@ -20,18 +19,19 @@
     <dd><%= @contract.responsable %></dd>
     <dt>CPF</dt>
     <dd><%= @contract.cpf %></dd>
-    <dt>Prazo</dt>
-    <dd><%= @contract.rental_period %></dd>
+    <dt>Prazo de locação</dt>
+    <dd><%= @contract.rental_period_days%></dd>
     <dt>Data Inicial</dt>
-    <dd><%= @contract.initial_date%></dd>
+    <dd><%= @contract.initial_date %></dd>
     <dt>Valor do Desconto</dt>
     <dd>R$ <%= @contract.discount %></dd>
     <dt>Valor do Contrato</dt>
     <dd>R$ <%= @contract.amount %></dd>
     <dt>Data de Emissão</dt>
     <dd><%= @contract.created_at%></dd>
+    <dt>Data de Retorno</dt>
+    <dd><%= @contract.return_date%></dd>
   </dl>
-
   <% if @contract.receipt.nil? %>
     <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>
   <% else %>

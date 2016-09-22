@@ -9,7 +9,6 @@ RSpec.describe :contract, type: :model do
 
       equipment = Equipment.list_only_with_price
       expect(equipment).to include(equip)
-
     end
 
     it 'successfully having no showing equipment' do

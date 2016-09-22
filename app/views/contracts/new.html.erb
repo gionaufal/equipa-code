@@ -1,11 +1,15 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer, label: 'Cliente' %>
-  <%= f.input :rental_period, label: 'Prazo de locação' %>
   <%= f.association :equipment, collection: @equipment_with_price, label_method: :model, as: :check_boxes  %>
   <%= f.input :delivery_address, label: 'Endereço de Entrega' %>
   <%= f.input :responsable, label: 'Responsável na obra' %>
   <%= f.input :cpf, label: 'CPF do responsável' %>
-  <%= f.input :initial_date, label: 'Data de início' %>
+  <%= f.input :rental_period,
+    collection: @days,
+    label: 'Prazo de locação em dias',
+    error: 'O Prazo de locação é obrigatório'
+  %>
+  <%= f.input :initial_date, label: 'Data de início', as: :string %>
   <%= f.input :discount, label: 'Desconto' %>
 
   <%= f.button :submit, 'Criar contrato' %>

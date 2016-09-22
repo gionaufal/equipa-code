@@ -2,6 +2,7 @@ class ContractsController < ApplicationController
   before_action :equipment_with_price, only: [:new, :create]
   def new
     @contract = Contract.new
+    @days = RentalPeriod::DAYS
   end
 
   def create
@@ -25,12 +26,11 @@ class ContractsController < ApplicationController
     params.require(:contract).permit(:customer_id, :equipment,
                                      :acquisition_price, :delivery_address,
                                      :responsable, :cpf, :rental_period,
-                                     :initial_date, :amount, :discount,
+                                     :initial_date, :discount,
                                      equipment_ids: [])
   end
 
   def equipment_with_price
     @equipment_with_price = Equipment.joins(category: :prices).distinct
   end
-
 end

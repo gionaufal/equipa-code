@@ -20,8 +20,31 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Equipa!</a>
-      
+      <%= link_to root_path, class:'navbar-brand' do %>
+        Equipa!  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+      <% end %>
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to new_contract_path do %>
+            Emitir Contrato  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_equipment_path do %>
+            Cadastrar Equipamento  <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_customer_path do %>
+            Cadastrar Clientes  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_budget_path do %>
+            Enviar Orçamento  <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+          <% end %>
+        </li>
+      </ul>
     </div>
       </nav>
     </div>
