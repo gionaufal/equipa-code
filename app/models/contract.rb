@@ -5,9 +5,16 @@ class Contract < ApplicationRecord
   has_many :equipment, through: :rented_equipments
   belongs_to :customer
   validates :equipment, :delivery_address, :responsable, :rental_period,
-            :initial_date, :amount, presence: true
+            :initial_date, presence: true
+  before_save :calculate_return_date, :calculate_amount
 
-  before_save :calculate_return_date
+  def calculate_amount
+    self.amount = 0
+    equipment.map do |equip|
+      self.amount += equip.category.prices.find_by(days: rental_period).price
+    end
+    self.amount = (self.amount * (1 - (discount / 100))) if discount
+  end
 
   def calculate_return_date
     self.return_date = initial_date.to_date + rental_period.to_i

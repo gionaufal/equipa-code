@@ -29,12 +29,14 @@ feature 'visitor visits root page' do
   end
 
   scenario 'views contracts' do
-    equipment = create(:equipment)
+    category = create :category, name: 'Furadeira'
+    create :price, days: 1, price: 40, category: category
+    equipment = create :equipment, category: category
 
-    create(:contract, equipment: [equipment])
-    create(:contract, equipment: [equipment])
-    create(:contract, equipment: [equipment])
-    create(:contract, equipment: [equipment])
+    create(:contract, equipment: [equipment], rental_period: 1)
+    create(:contract, equipment: [equipment], rental_period: 1)
+    create(:contract, equipment: [equipment], rental_period: 1)
+    create(:contract, equipment: [equipment], rental_period: 1)
 
     visit root_path
 
