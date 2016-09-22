@@ -1,11 +1,12 @@
 class ContractsController < ApplicationController
+  before_action :equipment_with_price, only: [:new, :create]
   def new
-    @equipment_with_price = Equipment.joins(category: :prices).distinct
     @contract = Contract.new
   end
 
   def create
     @contract = Contract.new(contract_params)
+    @equipment_with_price = Equipment.joins(category: :prices).distinct
     if @contract.save
       redirect_to @contract
     else
@@ -27,4 +28,9 @@ class ContractsController < ApplicationController
                                      :initial_date, :amount, :discount,
                                      equipment_ids: [])
   end
+
+  def equipment_with_price
+    @equipment_with_price = Equipment.joins(category: :prices).distinct
+  end
+
 end
