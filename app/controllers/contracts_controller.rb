@@ -1,4 +1,8 @@
 class ContractsController < ApplicationController
+  def index
+    @contract = Contract.all
+  end
+
   def new
     @contract = Contract.new
     @days = RentalPeriod::DAYS
