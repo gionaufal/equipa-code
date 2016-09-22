@@ -1,0 +1,11 @@
+<h2>Novo preço</h2>
+<%= simple_form_for @price do |f| %>
+  <%= f.input :category_id, collection: @categories, label: 'Categoria'%>
+  <%= f.input :days,
+    collection: @days,
+    label: 'Prazo de locação em dias',
+    error: 'O Prazo de locação é obrigatório'
+  %>
+  <%= f.input :price, label: 'Preço'%>
+  <%= f.button :submit, 'Novo preço'%>
+<% end %>

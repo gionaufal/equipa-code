@@ -1,10 +1,12 @@
 <h1>Tabela de Preços</h1>
+<p><%= link_to 'Adicionar Preço', new_price_path %></p>
 <table>
   <thead>
     <tr>
       <th>Quantidade de Dias</th>
       <th>Categoria</th>
       <th>Preço</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +16,7 @@
           <td><%= price.days %></td>
           <td><%= category.name %></td>
           <td><%= price.price %></td>
+          <td><%= link_to 'Editar Preço', new_price_path(category_id: category, days: price.days, price: price.price) %></td>
         </tr>
       <% end %>
     <% end %>
