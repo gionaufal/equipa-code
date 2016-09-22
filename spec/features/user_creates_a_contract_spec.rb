@@ -90,11 +90,17 @@ feature 'User creates a contract' do
     expect(page).to have_content '4987984984685'
     expect(page).to have_content '3'
     expect(page).to have_content '12/09/2016'
-    expect(page).to have_content '72'
+    expect(page).to have_content 'R$ 72'
     expect(page).to have_content Time.zone.today
   end
 
   scenario 'should fail if has missing necessary fields' do
+
+    category = create(:category, name: 'Furadeira')
+    create :price, days: 1, price: 10, category: category
+    create :equipment, model: 'Makita', category: category
+    customer = create(:customer)
+
     visit new_contract_path
 
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'

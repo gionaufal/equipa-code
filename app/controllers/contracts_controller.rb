@@ -1,5 +1,6 @@
 class ContractsController < ApplicationController
   def new
+    @equipment_with_price = Equipment.joins(category: :prices).distinct
     @contract = Contract.new
   end
 
