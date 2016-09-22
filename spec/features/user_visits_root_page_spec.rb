@@ -22,6 +22,10 @@ feature 'visitor visits root page' do
     click_on 'Enviar Orçamento'
 
     expect(page).to have_content 'Mensagem'
+
+    click_on 'Tabela de Preços'
+
+    expect(page).to have_content 'Quantidade de Dias'
   end
 
   scenario 'views contracts' do

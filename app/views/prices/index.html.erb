@@ -1,6 +1,8 @@
 <h1>Tabela de Preços</h1>
-<p><%= link_to 'Adicionar Preço', new_price_path %></p>
-<table>
+<p>
+  <%= link_to 'Adicionar Preço', new_price_path , class: "btn btn-default", role: "button"%>
+</p>
+<table class="table table-condensed table-responsive table-bordered">
   <thead>
     <tr>
       <th>Quantidade de Dias</th>
