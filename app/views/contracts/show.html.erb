@@ -22,15 +22,15 @@
     <dt>Prazo de locação</dt>
     <dd><%= @contract.rental_period_days%></dd>
     <dt>Data Inicial</dt>
-    <dd><%= @contract.initial_date %></dd>
+    <dd><%= friendly_date @contract.initial_date.to_date %></dd>
     <dt>Valor do Desconto</dt>
     <dd>R$ <%= @contract.discount %></dd>
     <dt>Valor do Contrato</dt>
     <dd>R$ <%= @contract.amount %></dd>
     <dt>Data de Emissão</dt>
-    <dd><%= @contract.created_at%></dd>
+    <dd><%= friendly_date @contract.created_at%></dd>
     <dt>Data de Retorno</dt>
-    <dd><%= @contract.return_date%></dd>
+    <dd><%= friendly_date @contract.return_date.to_date %></dd>
   </dl>
   <% if @contract.receipt.nil? %>
     <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>
