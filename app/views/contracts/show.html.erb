@@ -33,9 +33,9 @@
     <dd><%= @contract.return_date%></dd>
   </dl>
   <% if @contract.receipt.nil? %>
-    <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post %>
+    <%= link_to "Emitir recibo", receipt_contract_path(@contract),  method: :post, class: 'btn btn-success' %>
   <% else %>
-    <%= link_to "Visualizar recibo", receipt_contract_path(@contract) %>
+    <%= link_to "Visualizar recibo", receipt_contract_path(@contract), class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to 'Emitir recibo de devolução', new_contract_return_receipt_path(@contract) %>
+  <%= link_to 'Emitir recibo de devolução', new_contract_return_receipt_path(@contract), class: 'btn btn-success' %>
 </section>

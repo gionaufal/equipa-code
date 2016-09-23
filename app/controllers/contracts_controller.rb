@@ -7,7 +7,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(contract_params)
-    @equipment_with_price = Equipment.joins(category: :prices).distinct
     if @contract.save
       redirect_to @contract
     else
@@ -31,6 +30,6 @@ class ContractsController < ApplicationController
   end
 
   def equipment_with_price
-    @equipment_with_price = Equipment.joins(category: :prices).distinct
+    @equipment_with_price = Equipment.list_avaiable
   end
 end

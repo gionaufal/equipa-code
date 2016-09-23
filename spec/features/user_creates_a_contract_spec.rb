@@ -114,4 +114,20 @@ feature 'User creates a contract' do
     expect(page).to have_content("Você não preencheu alguns campos \
                                   necessários.")
   end
+
+  scenario 'dont show equipment when it is rented' do
+    category = create(:category, name: 'Furadeira')
+    create :price, days: 1, price: 10, category: category
+    equipement = create :equipment, model: 'Makita', category: category
+    create :equipment, model: 'Bosch', category: category
+    create :equipment, model: 'Furadeira e Parafusadeira', category: category
+
+    create :contract, equipment: [equipement], rental_period: 1
+
+    visit new_contract_path
+
+    expect(page).to have_content 'Bosch'
+    expect(page).to have_content 'Furadeira e Parafusadeira'
+    expect(page).not_to have_content 'Makita'
+  end
 end
