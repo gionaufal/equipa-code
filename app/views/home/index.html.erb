@@ -3,21 +3,19 @@
     <%= image_tag 'rafael.jpg', alt:'Rafael', class:'img img-responsive'%>
   </div>
   <section class='contracts col-md-8'>
-    <div class="row">
-      <% @contracts.each do |contract| %>
-      <%= link_to contract do %>
-        <div class="contract col-md-6">
-          <p>Cliente: <%= contract.customer.name %></p>
-          <p>Equipamentos:</p>
-          <ul>
-            <% contract.equipment.each do |equipment|%>
-              <li><%= equipment.model %></li>
-            <% end %>
-          </ul>
-          <p>Data de término: <%= friendly_date contract.calculate_return_date %></p>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
+    <% @contracts.each do |contract| %>
+    <%= link_to contract do %>
+      <div class="contract col-md-12 jumbotron">
+        <p>Cliente: <%= contract.customer.name %></p>
+        <p>Equipamentos:</p>
+        <ul>
+          <% contract.equipment.each do |equipment|%>
+            <li><%= equipment.model %></li>
+          <% end %>
+        </ul>
+        <p>Data de término: <%= friendly_date contract.calculate_return_date %></p>
+      </div>
+    <% end %>
+    <% end %>
   </section>
 </div>

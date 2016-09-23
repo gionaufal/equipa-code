@@ -34,13 +34,17 @@ feature 'User list contracts closer to return date' do
   private
 
   def create_contracts_list
-    equipment = create(:equipment)
+    category = create(:category, name: 'parafusadeira')
+    equipment = create(:equipment, category_id: category.id)
+    
     rental_periods = [10, 5, 3]
     list = []
     rental_periods.each do |n|
+      create(:price, days: n, category: category, price: '250')
       list << create(:contract, rental_period: n,
                                 initial_date: '21-09-2016',
-                                equipment: [equipment])
+                                equipment: [equipment],
+                                acquisition_price: 1005)
     end
     list
   end
