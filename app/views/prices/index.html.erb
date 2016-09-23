@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @categories.each do |category| %>
-      <% category.prices.each do |price| %>
+      <% category.current_prices.each do |price| %>
         <tr>
           <td><%= price.days %></td>
           <td><%= category.name %></td>

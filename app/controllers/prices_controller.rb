@@ -6,7 +6,11 @@ class PricesController < ApplicationController
   def new
     @days = RentalPeriod::DAYS
     @categories = Category.all
-    @price = Price.new
+    if params[:category_id]
+      @price = Price.new(category_id: params[:category_id], days: params[:days], price: params[:price])
+    else
+      @price = Price.new
+    end
   end
 
   def create
