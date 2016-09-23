@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :equipment, only: [:new, :index, :create, :show]
   resources :prices, only: [:index, :new, :create]
-  resources :contracts, only:[:new, :create, :show] do
+  resources :contracts, only:[:new, :create, :show, :index] do
     resources :return_receipts, only: [:new, :create, :show]
     member do
       post 'receipt', to: 'receipts#create'

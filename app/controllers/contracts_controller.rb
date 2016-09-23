@@ -1,5 +1,10 @@
 class ContractsController < ApplicationController
   before_action :equipment_with_price, only: [:new, :create]
+
+  def index
+    @contract = Contract.order(return_date: :asc)
+  end
+
   def new
     @contract = Contract.new
     @days = RentalPeriod::DAYS

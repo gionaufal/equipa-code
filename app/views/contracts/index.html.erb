@@ -1,0 +1,22 @@
+<h1>Listagem de contratos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Contrato</th>
+      <th>Responsável</th>
+      <th>Data de retorno</th>
+      <th>Prazo de locação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contract.each do |c| %>
+      <tr>
+        <td><%= link_to c.id, c %></td>
+        <td><%=c.responsable %></td>
+        <td><%=c.return_date %></td>
+        <td><%=c.rental_period %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
