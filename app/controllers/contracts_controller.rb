@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   def index
-    @contract = Contract.all
+    @contract = Contract.order(return_date: :asc)
   end
 
   def new
