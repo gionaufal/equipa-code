@@ -49,12 +49,22 @@
             Enviar Orçamento  <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
           <% end %>
         </li>
+        <% if !user_signed_in? %>
+          <li>
+            <%= link_to 'Área administrativa', new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
       </nav>
     </div>
     <div class="container">
       <p><%= flash[:error] %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <% if user_signed_in? %>
+        <h2>Olá <%= current_user.email %></h2>
+      <% end %>
       <%= yield %>
     </div>
   </body>
