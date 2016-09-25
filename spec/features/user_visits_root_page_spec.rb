@@ -2,10 +2,12 @@ require 'rails_helper'
 
 feature 'visitor visits root page' do
   scenario 'visits navbar links' do
+    user = create(:user)
+    login_as(user)
     visit root_path
 
     expect(page).to have_content('Equipa')
-    expect(page).to have_css('img', 'Rafael')
+    expect(page).to have_css('img')
 
     click_on 'Emitir Contrato'
 
@@ -29,6 +31,8 @@ feature 'visitor visits root page' do
   end
 
   scenario 'views contracts' do
+    user = create(:user)
+    login_as(user)
     category = create :category, name: 'Furadeira'
     create :price, days: 1, price: 40, category: category
     equipment = create :equipment, category: category

@@ -1,5 +1,6 @@
 class ContractsController < ApplicationController
   before_action :equipment_with_price, only: [:new, :create]
+  before_action :authenticate_user!, only:[:new]
 
   def index
     @contract = Contract.order(return_date: :asc)

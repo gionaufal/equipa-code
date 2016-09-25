@@ -24,26 +24,28 @@
         Equipa!  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
       <% end %>
       <ul class="nav navbar-nav">
-        <li>
-          <%= link_to new_contract_path do %>
-            Emitir Contrato  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_equipment_path do %>
-            Cadastrar Equipamento  <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_customer_path do %>
-            Cadastrar Clientes  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to prices_path do %>
-            Tabela de Preços  <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-          <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to new_contract_path do %>
+              Emitir Contrato  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_equipment_path do %>
+              Cadastrar Equipamento  <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_path do %>
+              Cadastrar Clientes  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to prices_path do %>
+              Tabela de Preços  <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+            <% end %>
+          </li>
+        <% end %>
         <li>
           <%= link_to new_budget_path do %>
             Enviar Orçamento  <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>

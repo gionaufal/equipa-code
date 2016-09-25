@@ -2,10 +2,12 @@ require 'rails_helper'
 
 feature 'User creates contract with predefined rental period' do
   scenario 'successfully' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 5, price: 40, category: category
     create :equipment, model: 'Makita', category: category
     customer = create(:customer)
+    login_as(user)
 
     visit new_contract_path
 
@@ -25,11 +27,13 @@ feature 'User creates contract with predefined rental period' do
   end
 
   scenario 'successfully selects 1 day' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 1, price: 40, category: category
     create :equipment, model: 'Makita', category: category
     create :equipment, model: 'Bosch', category: category
     customer = create(:customer)
+    login_as(user)
 
     visit new_contract_path
 
@@ -49,11 +53,13 @@ feature 'User creates contract with predefined rental period' do
   end
 
   scenario 'do not select a rental period' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 3, price: 40, category: category
     create :equipment, model: 'Makita', category: category
     create :equipment, model: 'Bosch', category: category
     customer = create(:customer)
+    login_as(user)
 
     visit new_contract_path
 

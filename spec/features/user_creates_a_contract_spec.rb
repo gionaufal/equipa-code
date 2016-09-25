@@ -2,11 +2,13 @@ require 'rails_helper'
 
 feature 'User creates a contract' do
   scenario 'successfully without discount' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 1, price: 10, category: category
     create :equipment, model: 'Makita', category: category
     customer = create(:customer)
 
+    login_as(user)
     visit new_contract_path
 
     select customer.name, from: 'Cliente'
@@ -33,11 +35,13 @@ feature 'User creates a contract' do
   end
 
   scenario 'User choose 2 equipment' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 3, price: 40, category: category
     create :equipment, model: 'Makita', category: category
     create :equipment, model: 'Bosch', category: category
     customer = create(:customer)
+    login_as(user)
 
     visit new_contract_path
 
@@ -64,11 +68,13 @@ feature 'User creates a contract' do
   end
 
   scenario 'contract with discount' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 3, price: 40, category: category
     create :equipment, model: 'Makita', category: category
     create :equipment, model: 'Bosch', category: category
     customer = create(:customer)
+    login_as(user)
 
     visit new_contract_path
 
@@ -96,11 +102,12 @@ feature 'User creates a contract' do
   end
 
   scenario 'should fail if has missing necessary fields' do
+    user = create(:user)
     category = create(:category, name: 'Furadeira')
     create :price, days: 1, price: 10, category: category
     create :equipment, model: 'Makita', category: category
     create(:customer)
-
+    login_as(user)
     visit new_contract_path
 
     fill_in 'Endereço de Entrega', with: 'Rua Vergueiro'
@@ -113,5 +120,11 @@ feature 'User creates a contract' do
 
     expect(page).to have_content("Você não preencheu alguns campos \
                                   necessários.")
+  end
+
+  scenario 'and should be authenticated' do
+    visit new_contract_path
+
+    expect(current_path).to eq(new_user_session_path)
   end
 end
